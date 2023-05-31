@@ -1,0 +1,48 @@
+.nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 26px 10px;
+    gap: 30px;
+    background-color: var(--main-color);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px
+}
+
+.actions a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all .3s ease-in-out;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.actions a:hover {
+    color: rgb(227, 108, 24);
+    outline: 1px solid rgb(227, 108, 24);
+}
+
+.actions button {
+    background-color: inherit;
+    /* border: 1px solid var(--text-color); */
+    border: none;
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.actions button:hover {
+    background-color: inherit;
+    outline: 1px solid rgb(227, 108, 24);
+    color: rgb(227, 108, 24);
+}

@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #e7e7e7;
+    height: 90dvh;
+    width: fit-content;
+    margin: auto;
+}
+
+.adminLogo {
+    font-size: 8rem !important;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login input {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+}
+
+.login input:focus-visible {
+    border: none;
+    outline: none;
+}
+
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    color: #e7e7e7;
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid #e7e7e7;
+    position: relative;
+}
+
+/* .button:hover {
+    color: #000;
+    background-image: linear-gradient(to top right, #e7e7e7 50%, #2e1153 50%);
+    background-size: 200% 200%;
+    background-position: bottom left;
+    animation: btnAnimation .5s linear forwards;
+}
+
+@keyframes btnAnimation {
+    0% {
+        background-position: top right;
+    }
+
+    100% {
+        background-position: bottom left;
+    }
+} */
+
+/* .button:hover */
+
+.button:before {
+    content: '';
+    width: 10px;
+    background: #e7e7e7;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 10px;
+    transition: all .5s ease-in-out;
+    border-bottom-left-radius: 10px;
+}
+
+.button:hover:before {
+    width: 20px;
+}
+
+.wrong {
+    background-color: red;
+}

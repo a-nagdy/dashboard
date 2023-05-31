@@ -1,0 +1,97 @@
+.sidebar {
+    height: 100dvh;
+    width: max-content;
+    height: 100%;
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(227, 108, 24);
+    position: relative;
+}
+
+/* .logo svg {
+    font-size: 40px;
+} */
+
+.logo h2 {
+    padding: 10px;
+    font-family: 'Lobster', cursive;
+    font-weight: 100;
+
+}
+
+.close {
+    position: absolute;
+    top: 40%;
+    right: -3%;
+    padding: 0;
+    color: var(--main-color);
+    margin: 0;
+    min-width: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.open {
+    position: absolute;
+    top: 35px;
+    padding: 0;
+    color: var(--text-color);
+    margin: 0;
+    min-width: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dashboard {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard svg {
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.sidebar div ul {
+    padding: 0;
+    margin: 0;
+
+}
+
+.leftnav {
+    padding: 50px 80px 50px 20px;
+}
+
+.leftnav div h5 {
+    margin: 20px 10px 10px 10px;
+    color: rgb(184, 99, 52);
+}
+
+.sidebar div li {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+}
+
+.sidebar div li svg {
+    margin-right: 10px;
+}
+
+.sidebar div li:hover,
+.dashboard:hover {
+    color: rgb(184, 99, 52);
+}
