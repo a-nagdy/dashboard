@@ -1,0 +1,15 @@
+.dashflex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 5%;
+}
+
+.dashflex .dash {
+    width: 70%;
+}
+
+.dashflex .sales {
+    width: 25%;
+}

@@ -13,10 +13,14 @@ function App() {
     setIsLogged(true);
     localStorage.setItem("isLogged", true);
   };
+  const logoutHandler = () => {
+    setIsLogged(false);
+    localStorage.setItem("isLogged", false);
+  };
   return (
     <div className="App">
       {!isLogged && <Login isAdminLogged={loginHandler} />}
-      {isLogged && <Dashboard />}
+      {isLogged && <Dashboard isAdminOut={logoutHandler} />}
     </div>
   );
 }
