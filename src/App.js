@@ -18,10 +18,12 @@ function App() {
     localStorage.setItem("isLogged", false);
   };
   return (
+    // <LoginCTX>
     <div className="App">
       {!isLogged && <Login isAdminLogged={loginHandler} />}
       {isLogged && <Dashboard isAdminOut={logoutHandler} />}
     </div>
+    // </LoginCTX>
   );
 }
 

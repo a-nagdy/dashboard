@@ -1,15 +1,76 @@
 .dashflex {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap: 5%;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 30px;
+    gap: 50px;
+    height: 80%;
+    position: relative;
 }
 
-.dashflex .dash {
-    width: 70%;
+.dashflex .cardChart {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
 }
 
 .dashflex .sales {
-    width: 25%;
+    width: 30%;
+    height: 100%;
+    align-self: flex-start;
+    overflow: auto;
 }
+
+.sales h4 {
+    font-size: 22px;
+    color: var(--main-color);
+}
+
+.sales h5 {
+    font-size: 20px;
+    color: var(--main-color);
+}
+
+
+
+.sales ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 20px;
+    margin: 20px;
+
+}
+
+.sales li {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.sales li div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sales li div>div {
+    justify-content: center;
+    /* align-items: center; */
+    /* text-align: center; */
+    background-color: rgba(46, 17, 83, .98);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* .sales span {
+    position: relative;
+    display: block;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+} */

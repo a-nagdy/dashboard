@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Content from "./Components/Pages/Content/Content";
+import Navbar from "./Components/Ui/Navbar/Navbar";
 import Sidebar from "./Components/Ui/Sidebar/Sidebar";
 import styles from "./Dashboard.module.css";
 const Dashboard = (props) => {
@@ -7,9 +8,11 @@ const Dashboard = (props) => {
     <Fragment>
       <div className={styles.container}>
         <Sidebar />
-        <nav>
+        <div className={styles.content}>
+          <Navbar logOut={props.logOut} className={styles.navbar} />
+
           <Content logOut={props.isAdminOut} />
-        </nav>
+        </div>
 
         {/* <footer>CopyRight</footer> */}
       </div>

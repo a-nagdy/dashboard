@@ -1,13 +1,13 @@
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import React from "react";
+import React, { Fragment } from "react";
 import Chart from "../../../../Components/Chart/Chart";
 import Card from "../../../../UI/Card/Card";
 import styles from "./DashboardComp.module.css";
 const DashboardComp = () => {
   return (
-    <div>
+    <Fragment>
       <section className={styles.cards}>
         <Card className={styles.card}>
           <div>
@@ -55,12 +55,8 @@ const DashboardComp = () => {
           </div>
         </Card>
       </section>
-      <section className={styles}>
-        <div className={styles.charts}>
-          <Chart />
-        </div>
-      </section>
-    </div>
+      <Chart />
+    </Fragment>
   );
 };
 
