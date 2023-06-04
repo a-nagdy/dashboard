@@ -1,13 +1,10 @@
 .sidebar {
-    height: 100dvh;
-    width: max-content;
+    width: 250px;
     height: 100%;
     background-color: var(--main-color);
     color: var(--text-color);
+    overflow: auto;
 }
-
-
-
 
 .logo {
     display: flex;
@@ -15,11 +12,10 @@
     align-items: center;
     background-color: rgb(227, 108, 24);
     position: relative;
+    padding: 19px;
 }
 
-/* .logo svg {
-    font-size: 40px;
-} */
+
 
 .logo h2 {
     padding: 10px;
@@ -31,7 +27,7 @@
 .close {
     position: absolute;
     top: 40%;
-    right: -3%;
+    right: 0;
     padding: 0;
     color: var(--main-color);
     margin: 0;
@@ -71,7 +67,7 @@
 }
 
 .leftnav {
-    padding: 50px 80px 50px 20px;
+    padding: 30px 80px 10px 20px;
 }
 
 .leftnav div h5 {

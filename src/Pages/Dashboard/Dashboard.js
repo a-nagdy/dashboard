@@ -9,7 +9,7 @@ const Dashboard = (props) => {
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.content}>
-          <Navbar logOut={props.logOut} className={styles.navbar} />
+          <Navbar logOut={props.isAdminOut} className={styles.navbar} />
 
           <Content logOut={props.isAdminOut} />
         </div>

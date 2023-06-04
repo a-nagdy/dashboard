@@ -1,6 +1,13 @@
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
-import React, { Fragment, useReducer, useState } from "react";
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import Button from "../../Components/Button/Button";
+import useHttp from "../../hooks/use-http";
 import styles from "./Login.module.css";
 const initialState = {
   email: "",
@@ -24,24 +31,52 @@ function reducer(state, action) {
 const Login = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [authenticated, setAuthenticated] = useState(false);
-  const authenticatedUser = () => {
+  const [admin, setAdmin] = useState([]);
+  const getAdmin = useCallback((admin) => {
+    const adminLogin = [];
+    for (const login in admin) {
+      adminLogin.push({ name: login, password: admin[login] });
+    }
+    return adminLogin;
+  }, []);
+
+  const { isLoading, error, sendRequest } = useHttp();
+
+  const authenticatedUser = async () => {
     if (authenticated === true) {
-      props.isAdminLogged();
-    } else {
-      alert("wrong Data");
+      const url = `https://admins-login-default-rtdb.europe-west1.firebasedatabase.app/admin.json`;
+      const response = await sendRequest(url);
+
+      const adminData = response ? Object.values(response)[0] : null;
+      const adminKey = response ? Object.keys(response)[0] : null;
+
+      if (
+        adminData &&
+        adminData.email === state.email &&
+        adminData.password === state.password
+      ) {
+        setAdmin({ key: adminKey, ...adminData });
+        props.isAdminLogged();
+      } else {
+        setAuthenticated(false);
+      }
     }
+    //  else {
+    //   // alert("wrong Data");
+    // }
   };
-  const checkValidity = () => {
-    if (state.email.includes("@") && state.password.trim().length > 8) {
-      dispatch({ type: "setValidEmail", action: true });
-      dispatch({ type: "setValidPassword", action: true });
-      setAuthenticated(true);
-    } else {
-      dispatch({ type: "setValidEmail", action: false });
-      dispatch({ type: "setValidPassword", action: false });
-      setAuthenticated(false);
-    }
-  };
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      const isValidEmail = state.email.includes("@");
+      const isValidPassword = state.password.trim().length >= 8;
+      dispatch({ type: "setValidEmail", action: isValidEmail });
+      dispatch({ type: "setValidPassword", action: isValidPassword });
+      setAuthenticated(isValidEmail && isValidPassword);
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [state.email, state.password]);
   return (
     <Fragment>
       (
@@ -55,7 +90,6 @@ const Login = (props) => {
             type="text"
             className={styles.email}
             placeholder="Email"
-            onBlur={checkValidity}
             onChange={(event) =>
               dispatch({ type: "setEmail", action: event.target.value })
             }
@@ -64,7 +98,6 @@ const Login = (props) => {
             type="password"
             className={styles.email}
             placeholder="Password"
-            onBlur={checkValidity}
             onChange={(event) =>
               dispatch({ type: "setPassword", action: event.target.value })
             }
@@ -74,6 +107,8 @@ const Login = (props) => {
           <Button className={styles.button} onClick={authenticatedUser}>
             Login
           </Button>
+          {isLoading && authenticated && <p>Loading...</p>}
+          {!authenticated && <p>Wrong Data</p>}
         </div>
       </div>
       )

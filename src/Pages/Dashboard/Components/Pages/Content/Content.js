@@ -4,7 +4,7 @@ import SalesOverView from "../../../Pages/SalesOverView/SalesOverView";
 import styles from "./Content.module.css";
 const Content = (props) => {
   return (
-    <Fragment className={styles.container}>
+    <Fragment>
       <div className={styles.dashflex}>
         <div className={styles.cardChart}>
           <DashboardComp className={styles.dash} />
