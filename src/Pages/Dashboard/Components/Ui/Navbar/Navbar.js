@@ -17,18 +17,25 @@ const Navbar = (props) => {
   const closeUserSettingsHandler = () => {
     setUserSettings(false);
   };
+
+  const userName = localStorage.getItem("userName", true);
   return (
     <div className={styles.home}>
-      <div className={styles.actions}>
-        <Button>
-          <HelpOutlineIcon />
-          Contact Support
-        </Button>
-        <a href="/" onClick={props.logOut}>
-          LogOut
-        </a>
+      <div className={styles.adminData}>
+        <h5>Hello , {userName.split(5, -1)}</h5>
+        <span>Date</span>
       </div>
+
       <div className={styles.userControl}>
+        <div className={styles.actions}>
+          <Button>
+            <HelpOutlineIcon />
+            Contact Support
+          </Button>
+          <a href="/" onClick={props.logOut}>
+            LogOut
+          </a>
+        </div>
         <button onClick={userSettingsHandler}>
           <Avatar sx={{ bgcolor: deepOrange[700] }}>N</Avatar>
         </button>

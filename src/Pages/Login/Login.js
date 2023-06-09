@@ -93,6 +93,7 @@ const Login = (props) => {
             onChange={(event) =>
               dispatch({ type: "setEmail", action: event.target.value })
             }
+            id="emailInput"
           />
           <input
             type="password"
@@ -107,8 +108,8 @@ const Login = (props) => {
           <Button className={styles.button} onClick={authenticatedUser}>
             Login
           </Button>
+          {!authenticated && error && <p>Wrong Data</p>}
           {isLoading && authenticated && <p>Loading...</p>}
-          {!authenticated && <p>Wrong Data</p>}
         </div>
       </div>
       )
