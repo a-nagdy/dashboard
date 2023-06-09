@@ -4,18 +4,20 @@ import Login from "./Pages/Login/Login";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   useEffect(() => {
-    const storedIsLogged = localStorage.getItem("isLogged");
-    if (storedIsLogged === "true") {
+    const storedIsLogged = localStorage.getItem("userName");
+    if (storedIsLogged) {
       setIsLogged(true);
     }
-  }, []);
+  }, [setIsLogged]);
   const loginHandler = () => {
     setIsLogged(true);
-    localStorage.setItem("isLogged", true);
+    let userName = document.getElementById("emailInput").value;
+    localStorage.setItem("userName", userName);
+    console.log(userName);
   };
   const logoutHandler = () => {
     setIsLogged(false);
-    localStorage.setItem("isLogged", false);
+    localStorage.setItem("userName", "");
   };
   return (
     // <LoginCTX>

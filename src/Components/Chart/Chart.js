@@ -13,7 +13,7 @@ import styles from "./Chart.module.css";
 const data = [
   {
     name: "Page A",
-    uv: 4000,
+    uv: 5000,
     pv: 2400,
     amt: 2400,
   },
