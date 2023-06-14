@@ -6,7 +6,9 @@ import React, {
   useReducer,
   useState,
 } from "react";
+import { ReactComponent as Loading } from "../../Assets/Loading.svg";
 import Button from "../../Components/Button/Button";
+import Modal from "../../Components/Modal/Modal";
 import useHttp from "../../hooks/use-http";
 import styles from "./Login.module.css";
 const initialState = {
@@ -109,7 +111,11 @@ const Login = (props) => {
             Login
           </Button>
           {!authenticated && error && <p>Wrong Data</p>}
-          {isLoading && authenticated && <p>Loading...</p>}
+          {isLoading && authenticated && (
+            <Modal className={styles.loadingModal}>
+              <Loading />
+            </Modal>
+          )}
         </div>
       </div>
       )
